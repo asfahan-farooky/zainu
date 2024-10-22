@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #b39951;
+            text-align: center;
+        }
+        p{
+            font-size: 150%;
+            color: #5ebec4;
+        }
+        h3{
+            color: #fecd45;
+        }
+        ul{
+            list-style: none;
+        }
+        .l{
+            color: #ff0000;
+        }
+        .li{
+            color: #5ebec4;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 3rem;
+            will-change: transform; /* Optimizes animation performance */
+            pointer-events: none; /* Prevents interaction with the emojis */
+        }
+        button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: crimson;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        }
+        .hert{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            margin-left: 45px;
+            border-radius: 50px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MUJHE APSE KUCH KAHNA HAI</h1>
+    <p>
+        Mujhe vo din ab bhi yad hai jab mane apko pahli baar dekha tha apni classmate ke phone me 
+        ma to ase hi oske piche batha hua oska phone dekh raha tha but osme mujhe mano junnat hi dikh gayi ho
+        ☺️" 
+    </p>
+    <h1 class="l">💖 "I LOVE YOU" 💖</h1>
+    <h1>SOME LINES ARE MAKE YOU DIFFRENT FROME OTHRERS 😊</h1>
+    <h3><ul><li>Your smile and you are very cute.</li>
+        <li>You are very sweet, you are very good at heart.</li>
+        <li>My mind automatically becomes happy after seeing you. You look very nice.</li>
+        <li>You and your smile are very cute.</li>
+        <li>I like you very much, I trust you very much.</li>
+        <li>You are really very smart and cute.</li>
+        <li>My life will be filled with happiness after finding you. You are practical and very intelligent.</li>
+        <li>If you ask, we will give you a place in our hearts, you are very special to me.</li>
+        <li>This heart of mine needs your love.</li>
+        <li>I swear there is magic in your smile and your eyes.</li></ul>
+    </h3>
+        <h1> IF YOU AGREE WITH ME </h1>
+        <h3>click on the heart</h3>
+        <a href="https://wa.me/918171423264?text=I LOVE YOU TOO 😊💖" target="_blank">
+            <img class="hert" src="hert.jpg" alt="heart image">
+        </a>
+    <script>
+        // Function to generate a random number within a range
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+    
+        // Function to create an emoji element
+        function createEmoji() {
+            const emojiList = ['🍁', '🍁', '🍁', '🍁', '🍁']; // Add your desired emojis here
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.innerText = emojiList[getRandomInt(0, emojiList.length)];
+            emoji.style.left = `${getRandomInt(0, window.innerWidth)}px`;
+            emoji.style.top = `-${getRandomInt(20, 100)}px`; // Start slightly above the screen
+            document.body.appendChild(emoji);
+    
+            // Animate the emoji down the screen
+            const fallDuration = getRandomInt(5000, 10000); // Falling speed
+            emoji.animate([
+                { transform: `translateY(0)` },
+                { transform: `translateY(${window.innerHeight + 100}px)` }
+            ], {
+                duration: fallDuration,
+                easing: 'linear'
+            }).onfinish = () => {
+                emoji.remove(); // Remove the emoji after it falls out of view
+            };
+        }
+    
+        // Function to generate emoji rain
+        function startEmojiRain() {
+            setInterval(createEmoji, 300); // Adjust the interval for more/less emojis
+        }
+    
+        // Start the emoji rain when the page loads
+        window.onload = startEmojiRain;
+    </script>
+</body>
+</html>

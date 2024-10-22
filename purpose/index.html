@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+</head>
+<body>
+    <h1>HELLO THIS WEB JUST FOR YOU <h1 class="name">💕 ZAINAB KHAN 💕</h1></h1>
+    <div class="img1">
+        <img src="img.jpg" alt="zainab image">
+    </div>
+    <h3>
+        Dil Krta Hai Har Waqt Tare Sadqay Utaaron… 
+        Bhala Is Qadar Bhi Hasen Hota Hai Mehboob Kisi ka
+    </h3>
+    <h2>Apke liye yaha kuch hai</h2>
+    <h3>click hear to see</h3>
+    <div class="arrow">↓</div>
+    <a href="index1.html">
+        <button>CLICK ME</button>
+    </a> 
+    <script>
+        // Function to generate a random number within a range
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+    
+        // Function to create an emoji element
+        function createEmoji() {
+            const emojiList = ['🩷', '❤️', '🧡', '💛', '💕']; // Add your desired emojis here
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.innerText = emojiList[getRandomInt(0, emojiList.length)];
+            emoji.style.left = `${getRandomInt(0, window.innerWidth)}px`;
+            emoji.style.top = `-${getRandomInt(20, 100)}px`; // Start slightly above the screen
+            document.body.appendChild(emoji);
+    
+            // Animate the emoji down the screen
+            const fallDuration = getRandomInt(5000, 10000); // Falling speed
+            emoji.animate([
+                { transform: `translateY(0)` },
+                { transform: `translateY(${window.innerHeight + 100}px)` }
+            ], {
+                duration: fallDuration,
+                easing: 'linear'
+            }).onfinish = () => {
+                emoji.remove(); // Remove the emoji after it falls out of view
+            };
+        }
+    
+        // Function to generate emoji rain
+        function startEmojiRain() {
+            setInterval(createEmoji, 300); // Adjust the interval for more/less emojis
+        }
+    
+        // Start the emoji rain when the page loads
+        window.onload = startEmojiRain;
+    </script> 
+</body>
+</html>
